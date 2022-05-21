@@ -2,6 +2,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -22,7 +23,11 @@ export class LoginComponent  {
   async ingresar() {
     const {email, password } = this.loginForm.value;
     try {
-      const user = await this.authService.login(email, password);
+      const user = await this.authService.login(email, password)
+      .then(res =>{
+        console.log(res);
+        Swal.fire("Sesion iniciada")
+      });
     }catch (err) {
       console.log(err);
     }
@@ -30,7 +35,11 @@ export class LoginComponent  {
 
   async ingresarConGoogle(){
     try {
-      const user = await this.authService.loginWithGoogle();
+      const user = await this.authService.loginWithGoogle()
+      .then(res =>{
+        console.log(res);
+        Swal.fire("Sesion iniciada")
+      });
     }catch (err) {
       console.log(err);
     }

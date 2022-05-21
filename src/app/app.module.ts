@@ -17,6 +17,8 @@ import { ServiciosComponent } from './components/servicios/servicios.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { RegisterComponent } from './components/register/register.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     DashboardComponent,
     LoginComponent,
     HeaderComponent,
-    ServiciosComponent
+    ServiciosComponent,
+    RegisterComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
